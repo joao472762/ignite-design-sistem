@@ -4,22 +4,28 @@ import { ReactNode } from 'react';
 export interface TextProps {
     size ?: 'xs'  | 'sm' | 'md' 
     children: ReactNode,
-    asChild?: boolean
+    asChild?: boolean,
+    className?: string
 }
 
-export function Text({size = 'md',children, asChild,...rest}: TextProps){
+export function Text({size = 'md',children, asChild,className}: TextProps){
     const Comp =  asChild ? Slot : 'span'
+    console.log(size)
     return (
-    <Comp {...rest} className={
-        clsx(
-            'text-gray100 text-md',
-            {
-                'text-xs': size === 'xs',
-                'text-sm': size === 'sm',
-            })
-        }
-    > 
-        {children}
-    </Comp>
+        <Comp className={
+            clsx(
+                'text-gray-100 text-sm',
+                {
+                    'text-md': size === 'md',
+                    'text-xs': size === 'xs',
+                },
+                className
+                )
+                
+            }
+            
+        > 
+            {children}
+        </Comp>
     )
 }

@@ -1,8 +1,9 @@
-
-import { Button } from './components/Button'
-import { CheckBox } from './components/Checkbox'
-import { Text } from './components/Text'
 import './styles/global.css'
+import { SignIn } from './pages/SignIn'
+
+
 export function App(){
-  return <CheckBox/>
+  return (
+    <SignIn/>
+  )
 }
